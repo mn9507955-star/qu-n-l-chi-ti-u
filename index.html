@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mèo Thông Thái - Quản lý chi tiêu dễ thương</title>
+    <meta name="description" content="Ứng dụng quản lý số dư ngân sách và thu chi hàng ngày cùng chú mèo thông thái." />
+    <script>
+      // Prevent "Cannot set property fetch of #<Window> which has only a getter" error
+      // from third-party polyfills attempting to overwrite window.fetch
+      (function() {
+        var originalFetch = window.fetch;
+        try {
+          Object.defineProperty(window, 'fetch', {
+            configurable: true,
+            enumerable: true,
+            get: function() { return originalFetch; },
+            set: function(val) { originalFetch = val; }
+          });
+        } catch (e) {
+          console.warn("Could not redefine window.fetch", e);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
